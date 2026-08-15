@@ -1,0 +1,3 @@
+Aug 15, 2026 11:49:15 AM com.example.tryresources.InvoiceImportService importCsv
+WARNING: 取込失敗を返します: primary=InvalidInvoiceException, suppressed=1
+ALL TESTS PASSED
