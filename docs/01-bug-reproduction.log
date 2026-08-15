@@ -1,0 +1,8 @@
+Aug 15, 2026 11:46:50 AM com.example.tryresources.InvoiceImportService importCsv
+INFO: 監査ログをcloseします
+Aug 15, 2026 11:46:50 AM com.example.tryresources.InvoiceImportService importCsv
+WARNING: 取込失敗を返します: primary=AuditCloseException, suppressed=0
+Exception in thread "main" java.lang.AssertionError: expected: INVALID_INVOICE but was: AUDIT_CLOSE_FAILED
+	at com.example.tryresources.InvoiceImportServiceTest.assertEquals(InvoiceImportServiceTest.java:32)
+	at com.example.tryresources.InvoiceImportServiceTest.壊れた請求CSVでは本体例外を主失敗として返しclose例外をsuppressedに保持する(InvoiceImportServiceTest.java:23)
+	at com.example.tryresources.InvoiceImportServiceTest.main(InvoiceImportServiceTest.java:10)
