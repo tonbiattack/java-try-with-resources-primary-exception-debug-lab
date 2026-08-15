@@ -14,17 +14,11 @@ public final class InvoiceImportService {
     }
 
     public ImportResult importCsv(String csv) {
-        try {
-            AuditTrail auditTrail = auditTrailFactory.open();
-            try {
-                auditTrail.record("IMPORT_STARTED");
-                parser.validate(csv);
-                auditTrail.record("IMPORT_ACCEPTED");
-                return ImportResult.successful();
-            } finally {
-                LOGGER.info("監査ログをcloseします");
-                auditTrail.close();
-            }
+        try (AuditTrail auditTrail = auditTrailFactory.open()) {
+            auditTrail.record("IMPORT_STARTED");
+            parser.validate(csv);
+            auditTrail.record("IMPORT_ACCEPTED");
+            return ImportResult.successful();
         } catch (Exception failure) {
             LOGGER.warning(() -> "取込失敗を返します: primary="
                     + failure.getClass().getSimpleName()
